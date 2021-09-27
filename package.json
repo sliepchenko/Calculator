@@ -25,5 +25,5 @@
     "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {},
-  "license": "MIT"
+  "license": "MIT License"
 }
