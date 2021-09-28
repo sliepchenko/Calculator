@@ -1,23 +1,32 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const isProduction = process.env.NODE_ENV === 'production';
+import {dirname, join, resolve} from 'path'
+import {fileURLToPath} from 'url';
+import { exec } from 'child_process';
 
-const config = {
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+export default {
     entry: './src/index.js',
+    mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
     output: {
-        path: path.resolve(__dirname, 'dist'),
+        path: resolve(__dirname, 'dist'),
     },
     devServer: {
         open: true,
         static: {
-            directory: path.join(__dirname, 'dist'),
+            directory: join(__dirname, 'dist'),
             watch: true,
+        },
+        client: {
+            overlay: true,
         },
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: 'index.html'
-        })
+        }),
     ],
     module: {
         rules: [
@@ -33,25 +42,14 @@ const config = {
             {
                 test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
                 type: 'asset',
-            },
-
+            }
             // Add your rules for custom modules here
             // Learn more about loaders from https://webpack.js.org/loaders/
         ],
     },
     resolve: {
         alias: {
-            src: path.resolve(__dirname, 'src'),
+            src: resolve(__dirname, 'src'),
         },
     },
-};
-
-module.exports = () => {
-    if (isProduction) {
-        config.mode = 'production';
-    } else {
-        config.mode = 'development';
-    }
-
-    return config;
 };
