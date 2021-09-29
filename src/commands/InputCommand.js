@@ -1,5 +1,5 @@
-import {CommandAbstract} from 'src/commands/CommandAbstract';
-import {StateDecorator} from 'src/decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
+import {StateDecorator} from '../decorators/StateDecorator';
 
 /**
  * Command for input any number

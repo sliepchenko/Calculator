@@ -1,4 +1,4 @@
-import {CommandBus} from 'src/services/CommandBus';
+import {CommandBus} from './CommandBus';
 
 /**
  * Builder for HTML Element
@@ -10,12 +10,24 @@ import {CommandBus} from 'src/services/CommandBus';
 export function HTMLBuilder(tag) {
     const result = document.createElement(tag),
         methods = {
-            id: function(string) { result.id = string; return methods; },
-            class: function(string) { result.className = string; return methods; },
-            text: function(string) { result.innerText = string; return methods; },
-            disable: function() { result.disabled = 'disabled'; return methods; },
+            id: function (string) {
+                result.id = string;
+                return methods;
+            },
+            class: function (string) {
+                result.className = string;
+                return methods;
+            },
+            text: function (string) {
+                result.innerText = string;
+                return methods;
+            },
+            disable: function () {
+                result.disabled = 'disabled';
+                return methods;
+            },
 
-            doCommandOnEvent: function(event, command, payload) {
+            doCommandOnEvent: function (event, command, payload) {
                 result.addEventListener(event, () => {
                     const commandBus = new CommandBus();
 
@@ -25,8 +37,13 @@ export function HTMLBuilder(tag) {
                 return methods;
             },
 
-            appendTo: function(parentNode) { parentNode.appendChild(result); return methods; },
-            result: function() { return result; }
+            appendTo: function (parentNode) {
+                parentNode.appendChild(result);
+                return methods;
+            },
+            result: function () {
+                return result;
+            }
         };
 
     return methods;

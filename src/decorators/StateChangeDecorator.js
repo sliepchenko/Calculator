@@ -1,4 +1,4 @@
-import {StateManager} from 'src/services/StateManager';
+import {StateManager} from '../services/StateManager';
 
 /**
  * Decorator which can subscribe for any changes in state
@@ -7,7 +7,7 @@ import {StateManager} from 'src/services/StateManager';
  * @pattern Decorator, State, StateManager
  */
 export function StateChangeDecorator(prop) {
-    return function(target, key, descriptor) {
+    return function (target, key, descriptor) {
         const stateManager = new StateManager();
 
         stateManager.on('stateChanged', (data) => {

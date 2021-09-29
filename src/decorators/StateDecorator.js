@@ -1,4 +1,4 @@
-import {StateManager} from 'src/services/StateManager';
+import {StateManager} from '../services/StateManager';
 
 /**
  * Decorator

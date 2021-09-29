@@ -1,5 +1,5 @@
 import '/index.scss';
 
-import {Calculator} from 'src/app/Calculator';
+import {Calculator} from './app/Calculator';
 
 const app = new Calculator();

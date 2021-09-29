@@ -1,16 +1,15 @@
-import {HTMLBuilder} from 'src/services/HTMLBuilder';
+import {AdditionCommand} from '../commands/AdditionCommand';
+import {AllClearCommand} from '../commands/AllClearCommand';
+import {DivideCommand} from '../commands/DivideCommand';
+import {InputCommand} from '../commands/InputCommand';
+import {MultiplyCommand} from '../commands/MultiplyCommand';
+import {PercentCommand} from '../commands/PercentCommand';
+import {ReverseCommand} from '../commands/ReverseCommand';
+import {SubmitCommand} from '../commands/SubmitCommand';
+import {SubtractionCommand} from '../commands/SubtractionCommand';
 
-import {StateDecorator} from 'src/decorators/StateDecorator';
-
-import {AdditionCommand} from 'src/commands/AdditionCommand';
-import {AllClearCommand} from 'src/commands/AllClearCommand';
-import {DivideCommand} from 'src/commands/DivideCommand';
-import {InputCommand} from 'src/commands/InputCommand';
-import {MultiplyCommand} from 'src/commands/MultiplyCommand';
-import {PercentCommand} from 'src/commands/PercentCommand';
-import {ReverseCommand} from 'src/commands/ReverseCommand';
-import {SubmitCommand} from 'src/commands/SubmitCommand';
-import {SubtractionCommand} from 'src/commands/SubtractionCommand';
+import {StateDecorator} from '../decorators/StateDecorator';
+import {HTMLBuilder} from '../services/HTMLBuilder';
 
 /**
  * Central class of application

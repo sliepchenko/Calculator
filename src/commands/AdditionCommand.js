@@ -1,5 +1,5 @@
-import {CommandAbstract} from 'src/commands/CommandAbstract';
-import {StateDecorator} from 'src/decorators/StateDecorator';
+import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for add command to output

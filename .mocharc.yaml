@@ -1,19 +1,13 @@
 extension: ['.spec.js']
-#recursive: true
-#parallel: true                       # doesn't work with intellij-mocha
+#parallel: true
+reporter: 'mochawesome'
+reporter-option:
+ - 'reportDir=report'
+ - 'reportFilename=index'
+ - 'quiet=true'
 require: '@babel/register'
-##reporter: 'mochawesome'
-##reporter-option:
-## - 'reportDir=report'
-## - 'reportFilename=index'
-## - 'quiet=true'
-#slow: 100
-spec:
- - 'src/**/*.spec.js'
-#timeout: 5000
-#ui: 'bdd'
-#watch: true
-##watch-files:
-## - './src/**/*.js'
-##watch-ignore:
-## - './mochawesome-report/'
+slow: 100
+spec: 'src/**/*.spec.js'
+timeout: 5000
+watch: true
+watch-files: 'src/**/*.js'
