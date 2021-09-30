@@ -28,11 +28,18 @@ jobs:
     - run: npm run build
     - run: npm run test
         
-    - name: Deploy
+    - name: Deploy build
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: dist
+        
+    - name: Deploy test
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: report
+        destination_dir: $tests
     
     - name: Upload report artifact
       uses: actions/upload-artifact@v2.2.4
