@@ -2,8 +2,10 @@
 
 #### This project is an example, how we can implement popular design patterns in our JS. I have tried to show the best practices,  as good as I can. The main reason why I developed this project - it's to help my newbie buddies with understanding this theme. If you have any questions, advice or remark, feel free to mail me.
 
-![GitHub package.json version](https://img.shields.io/github/package-json/v/sliepchenko/Calculator?style=for-the-badge)![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sliepchenko/Calculator/Node.js%20CI?style=for-the-badge)[![GitHub issues](https://img.shields.io/github/issues/sliepchenko/Calculator?style=for-the-badge)](https://github.com/sliepchenko/Calculator/issues)![GitHub](https://img.shields.io/github/license/sliepchenko/Calculator?style=for-the-badge)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/sliepchenko/Calculator?style=for-the-badge)[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/sliepchenko/Calculator/Node.js%20CI?style=for-the-badge)](https://sliepchenko.github.io/Calculator/$tests)[![GitHub issues](https://img.shields.io/github/issues/sliepchenko/Calculator?style=for-the-badge)](https://github.com/sliepchenko/Calculator/issues)![GitHub](https://img.shields.io/github/license/sliepchenko/Calculator?style=for-the-badge)
 [![Telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/CyberDudeUA)[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:slepchenko.nicholas@gmail.com)
+
+[DEMO 🌎](https://sliepchenko.github.io/Calculator/)
 
 ## Patterns
 - [Builder](https://refactoring.guru/design-patterns/builder)
