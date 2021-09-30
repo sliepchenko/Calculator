@@ -29,3 +29,15 @@ jobs:
     - run: npm ci
     - run: npm run build
     - run: npm run test
+
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: build
+        path: dist
+
+    - name: Upload a Report Artifact
+      uses: actions/upload-artifact@v2.2.4
+      with:
+        name: report
+        path: report
