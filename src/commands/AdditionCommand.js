@@ -15,6 +15,14 @@ export class AdditionCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = eval(this.state.output) + '+';
+        let output = String(this.state.output);
+
+        if (/\D$/.test(this.state.output)) {
+            output = `${output}`;
+        } else {
+            output = `${eval(output)}+`;
+        }
+
+        this.state.output = output;
     }
 }

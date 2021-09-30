@@ -1,8 +1,8 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
- * Command for submit any operations in output
+ * Command for submit any operations in the output
  *
  * Command, Decorator, State
  */
@@ -15,6 +15,7 @@ export class SubmitCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = eval(this.state.output);
+        const output = String(this.state.output).replace(/\D$/, '');
+        this.state.output = eval(output);
     }
 }

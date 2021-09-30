@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command that will make operation with output in percent style behaviour
@@ -15,7 +15,13 @@ export class PercentCommand extends CommandAbstract {
     }
 
     execute() {
-        const [a, operator, b] = this.state.output.split(/([\+\-\*\/])/);
-        this.state.output = eval(`${a}${operator}${a / 100 * b}`);
+        const [a = '0', operator = '+', b = '0'] = this.state.output.split(/([+\-*\/])/),
+            out = `${a}${operator}${a / 100 * b}`;
+
+        if (eval(out) != a) {
+            this.state.output = out;
+        } else {
+            this.state.output = a;
+        }
     }
 }

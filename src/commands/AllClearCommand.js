@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for clearing output
@@ -15,6 +15,6 @@ export class AllClearCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = '';
+        this.state.output = '0';
     }
 }

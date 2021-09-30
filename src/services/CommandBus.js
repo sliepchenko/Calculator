@@ -31,4 +31,8 @@ export class CommandBus {
             command.execute();
         });
     }
+
+    destroy() {
+        CommandBus.#instance = undefined;
+    }
 }

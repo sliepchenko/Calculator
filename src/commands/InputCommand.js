@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for input any number
@@ -15,6 +15,6 @@ export class InputCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output += this.payload;
+        this.state.output = this.state.output == 0 ? this.payload : String(this.state.output) + String(this.payload);
     }
 }

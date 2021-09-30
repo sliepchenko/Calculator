@@ -5,9 +5,11 @@ reporter-option:
  - 'reportDir=report'
  - 'reportFilename=index'
  - 'quiet=true'
-require: '@babel/register'
+require:
+ - './src/jsdom.js'
+ - '@babel/register'
 slow: 100
 spec: 'src/**/*.spec.js'
-timeout: 5000
+timeout: 1000
 watch: true
 watch-files: 'src/**/*.js'

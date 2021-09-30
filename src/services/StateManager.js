@@ -10,19 +10,21 @@ export class StateManager {
     on = this.#eventTarget.addEventListener.bind(this.#eventTarget);
     off = this.#eventTarget.removeEventListener.bind(this.#eventTarget);
 
-    output = '';
+    output = '0';
 
     constructor() {
         if (StateManager.#instance === undefined) {
             StateManager.#instance = new Proxy(this, {
                 set: function (obj, prop, value) {
-                    obj[prop] = value;
+                    if (obj[prop] !== value) {
+                        obj[prop] = value;
 
-                    // clone of object to avoid rewriting
-                    const {on, ...state} = obj;
+                        // clone of object to avoid rewriting
+                        const {on, off, ...state} = obj;
 
-                    obj.#eventTarget.dispatchEvent(new CustomEvent('stateChanged', {detail: {prop, value, state}}));
-                    obj.#eventTarget.dispatchEvent(new CustomEvent(prop + 'Changed', {detail: {prop, value, state}}));
+                        obj.#eventTarget.dispatchEvent(new CustomEvent('stateChanged', {detail: {prop, value, state}}));
+                        obj.#eventTarget.dispatchEvent(new CustomEvent(prop + 'Changed', {detail: {prop, value, state}}));
+                    }
 
                     return true;
                 },
@@ -33,5 +35,23 @@ export class StateManager {
         }
 
         return StateManager.#instance;
+    }
+
+    set(state) {
+        state = new state();
+
+        const {on, off, ...props} = this;
+
+        Object.keys(props).forEach(key => {
+            delete this[key];
+        });
+
+        Object.keys(state).forEach(key => {
+            this[key] = state[key];
+        });
+    }
+
+    destroy() {
+        StateManager.#instance = undefined;
     }
 }

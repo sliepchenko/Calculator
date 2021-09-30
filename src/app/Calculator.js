@@ -69,6 +69,7 @@ export class Calculator {
     buildOutput() {
         this.outputNode = HTMLBuilder('input')
             .id('outputNode').class('calculator-container__output')
+            .value(this.state.output)
             .disable()
             .result();
 
@@ -135,7 +136,7 @@ export class Calculator {
             .result();
 
         this.multiplyButton = HTMLBuilder('button').id('multiplyButton').class('multiply-button')
-            .text('/')
+            .text('*')
             .doCommandOnEvent('click', MultiplyCommand)
             .appendTo(this.operatorButtonsContainer)
             .result();
@@ -185,12 +186,6 @@ export class Calculator {
             .appendTo(this.numberButtonsContainer)
             .result();
 
-        this.n3Button = HTMLBuilder('button').id('number3Button').class('number3-button')
-            .text('3')
-            .doCommandOnEvent('click', InputCommand, 3)
-            .appendTo(this.numberButtonsContainer)
-            .result();
-
         this.n4Button = HTMLBuilder('button').id('number4Button').class('number4-button')
             .text('4')
             .doCommandOnEvent('click', InputCommand, 4)
@@ -200,6 +195,12 @@ export class Calculator {
         this.n5Button = HTMLBuilder('button').id('number5Button').class('number5-button')
             .text('5')
             .doCommandOnEvent('click', InputCommand, 5)
+            .appendTo(this.numberButtonsContainer)
+            .result();
+
+        this.n6Button = HTMLBuilder('button').id('number6Button').class('number6-button')
+            .text('6')
+            .doCommandOnEvent('click', InputCommand, 6)
             .appendTo(this.numberButtonsContainer)
             .result();
 
@@ -215,9 +216,9 @@ export class Calculator {
             .appendTo(this.numberButtonsContainer)
             .result();
 
-        this.n6Button = HTMLBuilder('button').id('number6Button').class('number6-button')
-            .text('6')
-            .doCommandOnEvent('click', InputCommand, 6)
+        this.n3Button = HTMLBuilder('button').id('number3Button').class('number3-button')
+            .text('3')
+            .doCommandOnEvent('click', InputCommand, 3)
             .appendTo(this.numberButtonsContainer)
             .result();
 

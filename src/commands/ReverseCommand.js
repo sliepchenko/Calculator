@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for reverse plus to minus and vice versa
@@ -15,6 +15,7 @@ export class ReverseCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = eval(this.state.output) * -1;
+        const output = String(this.state.output).replace(/\D$/, '');
+        this.state.output = eval(output) * -1;
     }
 }

@@ -25,4 +25,8 @@ export function EventBusDecorator(target) {
             }
         });
     };
+
+    target.prototype.offBusEvent = function (name, callback) {
+        eventBus.removeEventListener('eventBus', callback);
+    };
 }

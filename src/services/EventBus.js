@@ -13,4 +13,8 @@ export class EventBus extends EventTarget {
 
         return EventBus.#instance;
     }
+
+    destroy() {
+        EventBus.#instance = undefined;
+    }
 }

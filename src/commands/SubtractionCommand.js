@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for add subtraction command to output
@@ -15,6 +15,16 @@ export class SubtractionCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = eval(this.state.output) + '-';
+        let output = String(this.state.output).replace(/\D$/, '');
+
+        if (/-$/.test(this.state.output)) {
+            output = `${output}+`.replace('++', '+');
+        } else if (/\D$/.test(this.state.output)) {
+            output = `${this.state.output}-`;
+        } else {
+            output = `${eval(output)}-`;
+        }
+
+        this.state.output = output;
     }
 }

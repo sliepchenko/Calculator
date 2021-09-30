@@ -22,8 +22,12 @@ export function HTMLBuilder(tag) {
                 result.innerText = string;
                 return methods;
             },
+            value: function (string) {
+                result.value = string;
+                return methods;
+            },
             disable: function () {
-                result.disabled = 'disabled';
+                result.disabled = true;
                 return methods;
             },
 

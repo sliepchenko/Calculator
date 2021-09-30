@@ -8,15 +8,16 @@ import {StateManager} from '../services/StateManager';
  */
 export function StateChangeDecorator(prop) {
     return function (target, key, descriptor) {
-        const stateManager = new StateManager();
+        const stateManager = new StateManager(),
+            listener = (data) => {
+                if (prop !== undefined && data?.detail?.prop === prop) {
+                    target[key](data?.detail?.value);
+                } else if (prop === undefined) {
+                    target[key](data?.detail);
+                }
+            };
 
-        stateManager.on('stateChanged', (data) => {
-            if (prop && data?.detail?.prop === prop) {
-                target[key](data?.detail?.value);
-            } else {
-                target[key](data?.detail);
-            }
-        });
+        stateManager.on('stateChanged', listener);
 
         return descriptor;
     };

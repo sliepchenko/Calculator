@@ -1,5 +1,5 @@
-import {CommandAbstract} from './CommandAbstract';
 import {StateDecorator} from '../decorators/StateDecorator';
+import {CommandAbstract} from './CommandAbstract';
 
 /**
  * Command for add multiply command to output
@@ -15,6 +15,7 @@ export class MultiplyCommand extends CommandAbstract {
     }
 
     execute() {
-        this.state.output = eval(this.state.output) + '*';
+        const output = String(this.state.output).replace(/\D$/, '');
+        this.state.output = eval(output) + '*';
     }
 }
