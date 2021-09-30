@@ -11,5 +11,5 @@ require:
 slow: 100
 spec: 'src/**/*.spec.js'
 timeout: 1000
-watch: true
+#watch: true
 watch-files: 'src/**/*.js'
