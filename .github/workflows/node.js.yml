@@ -11,13 +11,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         node-version: [12.x, 14.x, 16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
     - uses: actions/checkout@v2
@@ -28,14 +26,25 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build
+    
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        
+    steps:
     - run: npm run test
+    
+  artifacts:
+    runs-on: ubuntu-latest
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v2.2.4
-      with:
-        name: build
-        path: dist
-
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        
+    steps:
     - name: Upload a Report Artifact
       uses: actions/upload-artifact@v2.2.4
       with:
