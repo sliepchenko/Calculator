@@ -40,5 +40,5 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v2.2.4
       with:
-        name: dist
-        path: build
+        name: build
+        path: dist
